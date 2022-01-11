@@ -1,4 +1,5 @@
 # tbrequest 
+```js
 var app = getApp()
 let path = ''
 
