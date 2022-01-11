@@ -1,6 +1,5 @@
 # tbrequest 
 ```js
-
 var app = getApp()
 let path = ''
 
@@ -8,12 +7,13 @@ let path = ''
   属性：
     userAgentTb：UA
     formatDateUTC：服务器时间戳
-    authorization：接口需要的验签
-    domain：接口的域名
-    showToast：toast提示
-    report_noaction：mattermost 通知
-    report_default：mattermost 通知
-    fName：框架名称
+    authorization: 接口需要的验签
+    domain: 接口的域名
+    showToast: toast提示
+    report_noaction: mattermost 通知
+    report_default: mattermost 通知
+    fName: 框架名称
+    fType: 框架类型 // wx(企业微信) Feishu(飞书)
 */
 
 function reqObject(argument){
@@ -24,7 +24,8 @@ function reqObject(argument){
   this.showToast = argument.showToast;
   this.report_noaction = argument.report_noaction;
   this.report_default =  argument.report_default;
-  this.fName = argument.fName
+  this.fName = argument.fName;
+  this.fType = argument.fType;
 
 
   //判断domain + url 的函数
@@ -32,7 +33,7 @@ function reqObject(argument){
     // console.log("data:",data)
     return new Promise((re, rj) => {
       if (data.apiType == "api") {
-        path = this.domain.api
+        path = this.domain.api 
       }
       if (data.apiType == "mp") {
         path = this.domain.mp
@@ -49,6 +50,7 @@ function reqObject(argument){
           })
       } else {
         if (!getApp().globalData.uc_uid) {
+          if(this.fType=='Feishu') return false
           getApp().userLogin('', 'page').then((res) => {
             data.data.uc_uid = getApp().globalData.uc_uid;
             this.publicRequest(data).then(
