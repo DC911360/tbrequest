@@ -31,7 +31,7 @@ function reqObject(argument){
     // console.log("data:",data)
     return new Promise((re, rj) => {
       if (data.apiType == "api") {
-        path = this.domain.api
+        path = this.domain.api 
       }
       if (data.apiType == "mp") {
         path = this.domain.mp
