@@ -11,7 +11,7 @@ let path = ''
     report_noaction: mattermost 通知
     report_default: mattermost 通知
     fName: 框架名称
-    fType: 框架类型 // wx(企业微信) feishu(飞书)
+    fType: 框架类型 // wx(企业微信) Feishu(飞书)
 */
 
 function reqObject(argument){
