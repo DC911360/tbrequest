@@ -40,7 +40,8 @@ function reqObject(argument){
       }
       data.path = path;
       console.log('data：', data);
-      if (data.data.requestType == "login" || data.data.requestType == "reportNoaction" || data.data.requestType == "reportDefault") {
+           if (data.data.requestType == "login" || data.data.requestType == "reportNoaction" || data.data.requestType == "reportDefault" || data.data.requestType == "bindPhone" || data.data.requestType == "passCode") {
+
         this.publicRequest(data).then(
           res => {
             re(res)
