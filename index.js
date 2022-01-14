@@ -11,7 +11,7 @@ let path = ''
     report_noaction: mattermost 通知
     report_default: mattermost 通知
     fName: 框架名称
-    fType: 框架类型 // wx(企业微信) feishu(飞书)
+    fType: 框架类型 // wx(企业微信) Feishu(飞书)
 */
 
 function reqObject(argument){
@@ -38,7 +38,7 @@ function reqObject(argument){
       }
       data.path = path;
       console.log('data：', data);
-      if (data.data.requestType == "login" || data.data.requestType == "reportNoaction" || data.data.requestType == "reportDefault") {
+      if (data.data.requestType == "login" || data.data.requestType == "reportNoaction" || data.data.requestType == "reportDefault" || data.data.requestType == "bindPhone" || data.data.requestType == "passCode") {
         this.publicRequest(data).then(
           res => {
             re(res)
