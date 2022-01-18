@@ -1,6 +1,7 @@
 var app = getApp()
 let path = ''
 
+
 /*
   属性：
     userAgentTb：UA
@@ -25,7 +26,9 @@ function reqObject(argument){
   this.report_default =  argument.report_default;
   this.fName = argument.fName;
   this.fType = argument.fType;
-  this.miniprogramName = argument.miniprogramName
+  this.miniprogramName = argument.miniprogramName;
+  console.log('1111');
+
 
 
   //判断domain + url 的函数
