@@ -27,7 +27,7 @@ function reqObject(argument){
   this.fName = argument.fName;
   this.fType = argument.fType;
   this.miniprogramName = argument.miniprogramName;
-  console.log('1111');
+  console.log('');
 
 
 
