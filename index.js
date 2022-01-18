@@ -13,7 +13,7 @@ let path = ''
     report_default: mattermost 通知
     fName: 框架名称
     fType: 框架类型 // wx(企业微信) Feishu(飞书)
-    miniprogramName: 小程序名称 用户判断 用户id key值
+    miniprogramName: 小程序名称 用户判断 用户id key值 
 */
 
 function reqObject(argument){
