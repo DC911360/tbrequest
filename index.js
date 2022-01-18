@@ -12,6 +12,7 @@ let path = ''
     report_default: mattermost 通知
     fName: 框架名称
     fType: 框架类型 // wx(企业微信) Feishu(飞书)
+    miniprogramName: 小程序名称 用户判断 用户id key值
 */
 
 function reqObject(argument){
@@ -24,6 +25,7 @@ function reqObject(argument){
   this.report_default =  argument.report_default;
   this.fName = argument.fName;
   this.fType = argument.fType;
+  this.miniprogramName = argument.miniprogramName
 
 
   //判断domain + url 的函数
@@ -31,7 +33,7 @@ function reqObject(argument){
     // console.log("data:",data)
     return new Promise((re, rj) => {
       if (data.apiType == "api") {
-        path = this.domain.api
+        path = this.domain.api 
       }
       if (data.apiType == "mp") {
         path = this.domain.mp
@@ -50,7 +52,11 @@ function reqObject(argument){
         if (!getApp().globalData.uc_uid) {
           if(this.fType=='Feishu') return false
           getApp().userLogin('', 'page').then((res) => {
-            data.data.uc_uid = getApp().globalData.uc_uid;
+            if(this.miniprogramName=='com.bianxingjimu.FA'){
+              data.data.fa_user_id = getApp().globalData.uc_uid;
+            }else{
+              data.data.uc_uid = getApp().globalData.uc_uid;
+            }
             this.publicRequest(data).then(
               res => {
                 re(res)
@@ -145,3 +151,4 @@ function reqObject(argument){
 module.exports = {
   reqObject
 }
+
