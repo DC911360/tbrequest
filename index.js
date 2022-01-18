@@ -90,6 +90,7 @@ function reqObject(argument){
   }
   //公共的函数
   this.publicRequest = data=> {
+    let _this =this;
     return new Promise((re, rj) => {
       let userAgentTb =this.userAgentTb
       let _date = this.formatDateUTC();
@@ -118,7 +119,7 @@ function reqObject(argument){
             if (data.data.count == 2) {
               return;
             }
-            this.reportNoaction({
+            _this.reportNoaction({
               page: 'http Error ',
               url: data.url,
               code: res.statusCode,
