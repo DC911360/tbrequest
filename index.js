@@ -27,7 +27,6 @@ function reqObject(argument){
   this.fName = argument.fName;
   this.fType = argument.fType;
   this.miniprogramName = argument.miniprogramName;
-  console.log('git5tttt');
 
 
 
